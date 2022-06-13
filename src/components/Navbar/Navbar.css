@@ -1,0 +1,21 @@
+.Nav {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  padding: 1em;
+  margin-bottom: 1em;
+  background-color: #30475e;
+  color: #fff;
+  font-size: 20px;
+}
+
+.Nav-link {
+  float: left;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  text-align: center;
+}

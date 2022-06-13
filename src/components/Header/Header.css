@@ -1,0 +1,25 @@
+.Title {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  padding: 2em;
+  margin-bottom: 0em;
+  background-color: #f05454;
+  color: #f5f5f5;
+}
+
+.logged-user {
+  display: flex;
+  justify-content: flex-end;
+  color: #121212;
+  background-color: #f05454;
+  margin: 0em;
+  font-size: 10px;
+}
+
+.icon {
+  margin-right: 3rem;
+  font-size: 5rem;
+}
