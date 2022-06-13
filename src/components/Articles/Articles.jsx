@@ -5,17 +5,21 @@ import Navbar from "../Navbar/Navbar";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetchAllArticles().then((articlesFromApi) => {
       setArticles(articlesFromApi);
+      setIsLoading(false);
     });
-  });
+  }, []);
+
+  if (isLoading) {
+    return <h1>Loading...</h1>;
+  }
 
   return (
     <>
-      <Header />
-      <Navbar />
       <div className="articles-container">
         <ul className="articles-ul">
           {articles.map((article) => {
