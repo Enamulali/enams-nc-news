@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { fetchAllArticles } from "../../utils/api";
-import Header from "../Header/Header";
-import Navbar from "../Navbar/Navbar";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
