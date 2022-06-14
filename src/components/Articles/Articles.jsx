@@ -1,45 +1,32 @@
 import React, { useEffect, useState } from "react";
 import { fetchAllArticles } from "../../utils/api";
-import Header from "../Header/Header";
-import Navbar from "../Navbar/Navbar";
+import ArticleCard from "../Articlecard/ArticleCard";
+import Topics from "../Topics/Topics";
+import "./Articles.css";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [currentTopic, setCurrentTopic] = useState("");
 
   useEffect(() => {
-    fetchAllArticles().then((articlesFromApi) => {
+    fetchAllArticles(currentTopic).then((articlesFromApi) => {
       setArticles(articlesFromApi);
+      setIsLoading(false);
     });
-  });
+  }, [currentTopic]);
+
+  if (isLoading) {
+    return <h1>Loading...</h1>;
+  }
 
   return (
     <>
-      <Header />
-      <Navbar />
+      <Topics setCurrentTopic={setCurrentTopic} />
       <div className="articles-container">
         <ul className="articles-ul">
           {articles.map((article) => {
-            return (
-              <li key={article.article_id}>
-                <h3>{article.title}</h3>
-                <p className="article-topic">
-                  Topic:
-                  {" " +
-                    article.topic.charAt(0).toUpperCase() +
-                    article.topic.slice(1)}
-                </p>
-                <p className="article-body">
-                  {article.body.slice(0, 100) + "..."}
-                  <button className="read-btn">Read More</button>
-                </p>
-                <p className="article-votes">
-                  Votes: <span>{article.votes}</span>
-                </p>
-                <p className="comment-count">
-                  Comment Count: <span>{article.comment_count}</span>
-                </p>
-              </li>
-            );
+            return <ArticleCard article={article} key={article.article_id} />;
           })}
         </ul>
       </div>
