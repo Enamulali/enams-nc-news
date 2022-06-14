@@ -19,8 +19,8 @@ const Topics = ({ setCurrentTopic }) => {
   return (
     <>
       <div className="topics-container">
+        <h4>What do you want to read about? </h4>
         <ul className="topics-ul">
-          <h4>What do you want to read about? </h4>
           {topics.map((topic) => {
             return (
               <li className="topics-li" key={topic.slug}>
