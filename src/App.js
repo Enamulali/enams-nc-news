@@ -17,7 +17,7 @@ function App() {
           <Route path=":topic" element={<Articles />} />
         </Route>
 
-        <Route path="/articles/id/:id" element={<SingleArticle />} />
+        <Route path="/articles/id/:articleId" element={<SingleArticle />} />
       </Routes>
     </div>
   );

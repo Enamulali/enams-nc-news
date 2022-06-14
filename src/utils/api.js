@@ -20,8 +20,8 @@ export const fetchAllTopics = () => {
   });
 };
 
-export const fetchArticleById = (id) => {
-  return api.get(`/articles/${id}`).then((res) => {
+export const fetchArticleById = (article_id) => {
+  return api.get(`/articles/${article_id}`).then((res) => {
     return res.data.article;
   });
 };

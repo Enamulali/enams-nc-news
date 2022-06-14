@@ -5,10 +5,10 @@ import { fetchArticleById } from "../../utils/api";
 const SingleArticle = () => {
   const [singleArticle, setSingleArticle] = useState({});
 
-  const { id } = useParams();
+  const { articleId } = useParams();
 
   useEffect(() => {
-    fetchArticleById(id).then((articleFromApi) => {
+    fetchArticleById(articleId).then((articleFromApi) => {
       setSingleArticle(articleFromApi);
     });
   }, []);
