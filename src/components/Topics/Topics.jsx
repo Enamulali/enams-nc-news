@@ -14,7 +14,6 @@ const Topics = ({ setCurrentTopic }) => {
   }, []);
 
   const { topic } = useParams();
-  console.log(topic);
 
   return (
     <>
