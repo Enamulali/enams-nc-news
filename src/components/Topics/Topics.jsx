@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { fetchAllTopics } from "../../utils/api";
 import "./Topics.css";
 
@@ -12,6 +13,9 @@ const Topics = ({ setCurrentTopic }) => {
     });
   }, []);
 
+  const { topic } = useParams();
+  console.log(topic);
+
   return (
     <>
       <div className="topics-container">
@@ -20,15 +24,17 @@ const Topics = ({ setCurrentTopic }) => {
           {topics.map((topic) => {
             return (
               <li className="topics-li" key={topic.slug}>
-                <button
-                  className="view-btn"
-                  value={topic.slug}
-                  onClick={() => {
-                    setCurrentTopic(topic.slug);
-                  }}
-                >
-                  {topic.slug.charAt(0).toUpperCase() + topic.slug.slice(1)}
-                </button>
+                <Link to={`/articles/${topic.slug}`} key={topic.slug}>
+                  <button
+                    className="view-btn"
+                    value={topic.slug}
+                    onClick={() => {
+                      setCurrentTopic(topic.slug);
+                    }}
+                  >
+                    {topic.slug.charAt(0).toUpperCase() + topic.slug.slice(1)}
+                  </button>
+                </Link>
               </li>
             );
           })}
