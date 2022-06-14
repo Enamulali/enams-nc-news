@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchAllArticles } from "../../utils/api";
+import ArticleCard from "../ArticleCard/ArticleCard";
+import "./Articles.css";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
@@ -21,27 +23,7 @@ const Articles = () => {
       <div className="articles-container">
         <ul className="articles-ul">
           {articles.map((article) => {
-            return (
-              <li key={article.article_id}>
-                <h3>{article.title}</h3>
-                <p className="article-topic">
-                  Topic:
-                  {" " +
-                    article.topic.charAt(0).toUpperCase() +
-                    article.topic.slice(1)}
-                </p>
-                <p className="article-body">
-                  {article.body.slice(0, 100) + "..."}
-                  <button className="read-btn">Read More</button>
-                </p>
-                <p className="article-votes">
-                  Votes: <span>{article.votes}</span>
-                </p>
-                <p className="comment-count">
-                  Comment Count: <span>{article.comment_count}</span>
-                </p>
-              </li>
-            );
+            return <ArticleCard article={article} key={article.article_id} />;
           })}
         </ul>
       </div>

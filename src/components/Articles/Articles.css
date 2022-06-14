@@ -1,0 +1,8 @@
+.read-btn {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  font-size: 14px;
+}
