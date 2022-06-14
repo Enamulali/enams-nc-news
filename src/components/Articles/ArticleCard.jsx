@@ -4,12 +4,14 @@ import { Link } from "react-router-dom";
 const ArticleCard = ({ article }) => {
   return (
     <div>
-      <li key={article.article_id}>
+      <li className="articles-card" key={article.article_id}>
         <h3>{article.title}</h3>
 
         <p className="article-topic">
-          Topic:
-          {" " + article.topic.charAt(0).toUpperCase() + article.topic.slice(1)}
+          Topic:{" "}
+          <Link to={`/articles/${article.topic}`}>
+            {article.topic.charAt(0).toUpperCase() + article.topic.slice(1)}
+          </Link>
         </p>
         <p className="article-body">
           {article.body.slice(0, 100) + "..."}
