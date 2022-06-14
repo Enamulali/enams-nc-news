@@ -13,10 +13,15 @@ export const fetchAllArticles = (topic) => {
     return res.data.articles;
   });
 };
-//?topic=football
 
 export const fetchAllTopics = () => {
   return api.get(`/topics`).then((res) => {
     return res.data.topics;
+  });
+};
+
+export const fetchArticleById = (id) => {
+  return api.get(`/articles/${id}`).then((res) => {
+    return res.data.article;
   });
 };
