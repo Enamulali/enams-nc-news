@@ -10,13 +10,14 @@
 .articles-card {
   margin-bottom: 1rem;
   margin-right: 2rem;
-  border: 1px solid;
   border-radius: 3px;
   padding: 5px;
   background-color: #ffffff;
   display: grid;
   justify-content: center;
   align-items: center;
+  max-width: 50rem;
+  padding: 2rem;
 }
 
 .articles-ul {
@@ -27,5 +28,8 @@
 .articles-card {
   display: inline-block;
   vertical-align: top;
-  padding: 2rem;
+}
+
+.articles-container {
+  display: grid;
 }

@@ -8,11 +8,13 @@ const SingleArticle = () => {
 
   const { articleId } = useParams();
 
+  console.log(singleArticle);
+
   useEffect(() => {
     fetchArticleById(articleId).then((articleFromApi) => {
       setSingleArticle(articleFromApi);
     });
-  }, []);
+  }, [articleId]);
 
   return (
     <>
