@@ -6,3 +6,37 @@
   overflow: hidden;
   font-size: 14px;
 }
+
+.articles-card {
+  margin-bottom: 1rem;
+  margin-right: 2rem;
+  border-radius: 3px;
+  padding: 5px;
+  background-color: #ffffff;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  max-width: 50rem;
+  padding: 2rem;
+}
+
+.articles-ul {
+  margin: 0 auto;
+  text-align: left;
+}
+
+.articles-card {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.articles-container {
+  display: grid;
+}
+
+.article-title {
+  color: #090d12;
+  border-left: 4px solid;
+  border-color: #f05454;
+  padding-left: 1rem;
+}

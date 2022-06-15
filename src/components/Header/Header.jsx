@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Header.css";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,7 +7,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBars,
   faArrowCircleUp,
-  hello,
   faClipboard,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -15,10 +15,12 @@ const Header = () => {
 
   return (
     <div className="Title">
-      <h1>
-        <FontAwesomeIcon className="icon" icon="fa-solid fa-clipboard" />
-        NC News
-      </h1>
+      <Link to={"/"} style={{ textDecoration: "none" }}>
+        <h1 className="title-header">
+          <FontAwesomeIcon className="icon" icon="fa-solid fa-clipboard" />
+          NC News
+        </h1>
+      </Link>
     </div>
   );
 };

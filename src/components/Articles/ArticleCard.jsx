@@ -1,15 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./Articles.css";
 
 const ArticleCard = ({ article }) => {
   return (
     <div>
-      <li key={article.article_id}>
-        <h3>{article.title}</h3>
+      <li className="articles-card" key={article.article_id}>
+        <Link
+          to={`/articles/id/${article.article_id}`}
+          style={{ textDecoration: "none" }}
+        >
+          <h3 className="article-title">{article.title}</h3>
+        </Link>
 
         <p className="article-topic">
-          Topic:
-          {" " + article.topic.charAt(0).toUpperCase() + article.topic.slice(1)}
+          Topic:{" "}
+          <Link to={`/articles/${article.topic}`}>
+            {article.topic.charAt(0).toUpperCase() + article.topic.slice(1)}
+          </Link>
         </p>
         <p className="article-body">
           {article.body.slice(0, 100) + "..."}

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+
 import { fetchAllArticles } from "../../utils/api";
 import ArticleCard from "./ArticleCard";
 import Topics from "../Topics/Topics";
@@ -11,10 +11,14 @@ const Articles = () => {
   const [currentTopic, setCurrentTopic] = useState("");
 
   useEffect(() => {
-    fetchAllArticles(currentTopic).then((articlesFromApi) => {
-      setArticles(articlesFromApi);
-      setIsLoading(false);
-    });
+    fetchAllArticles(currentTopic)
+      .then((articlesFromApi) => {
+        setArticles(articlesFromApi);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.dir(err);
+      });
   }, [currentTopic]);
 
   if (isLoading) {

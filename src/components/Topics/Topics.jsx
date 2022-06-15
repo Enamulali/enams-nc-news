@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { fetchAllTopics } from "../../utils/api";
 import "./Topics.css";
@@ -8,12 +7,14 @@ const Topics = ({ setCurrentTopic }) => {
   const [topics, setTopics] = useState([]);
 
   useEffect(() => {
-    fetchAllTopics().then((topicsFromApi) => {
-      setTopics(topicsFromApi);
-    });
+    fetchAllTopics()
+      .then((topicsFromApi) => {
+        setTopics(topicsFromApi);
+      })
+      .catch((err) => {
+        console.dir(err);
+      });
   }, []);
-
-  const { topic } = useParams();
 
   return (
     <>
