@@ -7,9 +7,13 @@ const Topics = ({ setCurrentTopic }) => {
   const [topics, setTopics] = useState([]);
 
   useEffect(() => {
-    fetchAllTopics().then((topicsFromApi) => {
-      setTopics(topicsFromApi);
-    });
+    fetchAllTopics()
+      .then((topicsFromApi) => {
+        setTopics(topicsFromApi);
+      })
+      .catch((err) => {
+        console.dir(err);
+      });
   }, []);
 
   return (

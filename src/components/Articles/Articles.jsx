@@ -11,10 +11,14 @@ const Articles = () => {
   const [currentTopic, setCurrentTopic] = useState("");
 
   useEffect(() => {
-    fetchAllArticles(currentTopic).then((articlesFromApi) => {
-      setArticles(articlesFromApi);
-      setIsLoading(false);
-    });
+    fetchAllArticles(currentTopic)
+      .then((articlesFromApi) => {
+        setArticles(articlesFromApi);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.dir(err);
+      });
   }, [currentTopic]);
 
   if (isLoading) {
