@@ -43,3 +43,9 @@ export const postCommentByArticle = (article_id, input) => {
     return res.data.addedComment;
   });
 };
+
+export const fetchAllUsers = () => {
+  return api.get(`/users`).then((res) => {
+    return res.data.users;
+  });
+};

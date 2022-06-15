@@ -1,9 +1,10 @@
 import React from "react";
+import Users from "../Users/Users";
 
 const Home = () => {
   return (
     <>
-      <h2>Welcome</h2>
+      <Users />
     </>
   );
 };
