@@ -40,3 +40,7 @@
   border-color: #f05454;
   padding-left: 1rem;
 }
+
+.article-date {
+  filter: opacity(0.6);
+}

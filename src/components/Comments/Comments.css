@@ -1,0 +1,44 @@
+.user-comment {
+  display: grid;
+}
+
+.comments-body {
+  padding-left: 2rem;
+  border-left: 2px solid;
+  border-color: #f05454;
+}
+
+.comments-author {
+  padding-left: 1rem;
+}
+
+.comments-date {
+  margin-left: 10px;
+  filter: opacity(0.6);
+}
+
+.comments-card {
+  margin-right: 2rem;
+  border-radius: 3px;
+  padding: 5px;
+  background-color: #ffffff;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  max-width: 50rem;
+  padding: 2rem;
+}
+
+.comments-ul {
+  margin: 0 auto;
+  text-align: left;
+}
+
+.comments-card {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.comments-container {
+  display: grid;
+}
