@@ -37,3 +37,9 @@ export const fetchCommentsByArticle = (article_id) => {
     return res.data.comments;
   });
 };
+
+export const postCommentByArticle = (article_id, input) => {
+  return api.post(`/articles/${article_id}/comments`, input).then((res) => {
+    return res.data.addedComment;
+  });
+};
