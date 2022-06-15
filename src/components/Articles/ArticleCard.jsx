@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { dateCalculator } from "../../utils/dateFormatter";
 import "./Articles.css";
 
 const ArticleCard = ({ article }) => {
@@ -12,7 +13,7 @@ const ArticleCard = ({ article }) => {
         >
           <h3 className="article-title">{article.title}</h3>
         </Link>
-
+        <p className="article-date">{dateCalculator(article.created_at)}</p>
         <p className="article-topic">
           Topic:{" "}
           <Link to={`/articles/${article.topic}`}>
