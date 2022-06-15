@@ -25,3 +25,9 @@ export const fetchArticleById = (article_id) => {
     return res.data.article;
   });
 };
+
+export const patchArticleVotes = (article_id, inc_votes) => {
+  return api.patch(`/articles/${article_id}`, { inc_votes }).then((res) => {
+    return res.data;
+  });
+};
