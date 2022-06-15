@@ -6,7 +6,12 @@ const ArticleCard = ({ article }) => {
   return (
     <div>
       <li className="articles-card" key={article.article_id}>
-        <h3>{article.title}</h3>
+        <Link
+          to={`/articles/id/${article.article_id}`}
+          style={{ textDecoration: "none" }}
+        >
+          <h3 className="article-title">{article.title}</h3>
+        </Link>
 
         <p className="article-topic">
           Topic:{" "}

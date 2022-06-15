@@ -33,3 +33,10 @@
 .articles-container {
   display: grid;
 }
+
+.article-title {
+  color: #090d12;
+  border-left: 4px solid;
+  border-color: #f05454;
+  padding-left: 1rem;
+}
