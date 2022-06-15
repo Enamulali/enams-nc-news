@@ -5,6 +5,7 @@ import Articles from "./components/Articles/Articles";
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import SingleArticle from "./components/Singlearticle/SingleArticle";
+import Comments from "./components/Comments/Comments";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         </Route>
 
         <Route path="/articles/id/:articleId" element={<SingleArticle />} />
+        <Route path="/articles/:articleId/comments" element={<Comments />} />
       </Routes>
     </div>
   );
