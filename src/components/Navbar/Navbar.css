@@ -19,3 +19,10 @@
   font-size: 17px;
   text-align: center;
 }
+
+.Nav-user-img {
+  max-width: 2rem;
+  max-height: 2rem;
+  border-radius: 50px;
+  margin-right: 5px;
+}
