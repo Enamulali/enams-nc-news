@@ -25,13 +25,7 @@ const Topics = ({ setCurrentTopic }) => {
             return (
               <li className="topics-li" key={topic.slug}>
                 <Link to={`/articles/${topic.slug}`} key={topic.slug}>
-                  <button
-                    className="view-btn"
-                    value={topic.slug}
-                    onClick={() => {
-                      setCurrentTopic(topic.slug);
-                    }}
-                  >
+                  <button className="view-btn" value={topic.slug}>
                     {topic.slug.charAt(0).toUpperCase() + topic.slug.slice(1)}
                   </button>
                 </Link>
