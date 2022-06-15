@@ -6,10 +6,14 @@ import BackButton from "../Backbutton/BackButton";
 
 import "./SingleArticle.css";
 import Comments from "../Comments/Comments";
+import PostComment from "../Comments/PostComment";
 
 const SingleArticle = () => {
   const [singleArticle, setSingleArticle] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
+  const [errMessage, setErrMessage] = useState("");
+  const [errDetail, setErrDetail] = useState("");
 
   const { articleId } = useParams();
 
@@ -20,14 +24,23 @@ const SingleArticle = () => {
         setIsLoading(false);
       })
       .catch((err) => {
-        console.dir(err);
+        setIsError(true);
+        setErrMessage(err.response.data.msg);
+        setErrDetail(err.response.data.detail);
       });
   }, [articleId]);
 
+  if (isLoading && isError) {
+    return (
+      <div className="err-msg">
+        <h1>⚠️{errMessage}</h1>
+        <p>{errDetail}</p>
+      </div>
+    );
+  }
   if (isLoading) {
     return <h1>Loading...</h1>;
   }
-
   return (
     <>
       <BackButton />
@@ -44,6 +57,7 @@ const SingleArticle = () => {
         </Link>
       </section>
       <section className="comments-container">
+        <PostComment />
         <Comments />
       </section>
     </>

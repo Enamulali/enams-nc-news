@@ -13,3 +13,7 @@
   padding-bottom: 2rem;
   display: grid;
 }
+
+.err-msg {
+  padding: 2rem;
+}
