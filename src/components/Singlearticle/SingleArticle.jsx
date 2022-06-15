@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { fetchArticleById } from "../../utils/api";
-import BackButton from "../Backbutton/BackButton";
 import Votes from "../Votes/Votes";
+import BackButton from "../Backbutton/BackButton";
+
 import "./SingleArticle.css";
+import Comments from "../Comments/Comments";
 
 const SingleArticle = () => {
   const [singleArticle, setSingleArticle] = useState({});
@@ -37,7 +39,12 @@ const SingleArticle = () => {
         </section>
         <h4>Written by: {singleArticle.author}</h4>
         <p>{singleArticle.created_at}</p>
-        <p>Comments: {singleArticle.comment_count}</p>
+        <Link to={`/articles/${articleId}/comments`}>
+          <p>Comments: {singleArticle.comment_count}</p>
+        </Link>
+      </section>
+      <section className="comments-container">
+        <Comments />
       </section>
     </>
   );
