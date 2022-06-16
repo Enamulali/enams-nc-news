@@ -11,7 +11,7 @@ const Articles = () => {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [sortByValue, setSortByValue] = useState("created_at");
-  const [orderByValue, setOrderByValue] = useState("asc");
+  const [orderByValue, setOrderByValue] = useState("desc");
   const [searchTerm, setSearchTerm] = useSearchParams({
     sort_by: "",
     order: "",
