@@ -49,20 +49,20 @@
   display: none;
 }
 
-.show-reset-btn {
+.show-btn {
   appearance: none;
   background-color: #f58f8f;
   border: 1px solid rgba(27, 31, 35, 0.15);
   border-radius: 6px;
   box-shadow: rgba(27, 31, 35, 0.1) 0 1px 0;
   box-sizing: border-box;
-  color: #fff;
+  color: white;
   cursor: pointer;
   display: inline-block;
   font-size: 14px;
   font-weight: 600;
   line-height: 20px;
-  padding: 6px 16px;
+  padding: 0.5rem;
   position: relative;
   text-align: center;
   user-select: none;
@@ -71,4 +71,36 @@
   white-space: nowrap;
   margin: 0.3rem;
   max-width: 120px;
+}
+
+.filter-container {
+  display: flex;
+  grid-template-columns: 33%, 33%, 33%;
+  grid-template-rows: 1;
+  justify-content: right;
+  margin-right: 2rem;
+  margin-bottom: 1rem;
+}
+
+.dropdown {
+  display: grid;
+  grid-template-areas: "select";
+  align-items: center;
+  position: relative;
+
+  select,
+  &::after {
+    grid-area: select;
+  }
+
+  min-width: 15ch;
+  max-width: 30ch;
+
+  border: 1px solid var(--select-border);
+  border-radius: 0.25em;
+  padding: 0.25em 0.5em;
+
+  font-size: 1rem;
+  cursor: pointer;
+  line-height: 1.1;
 }

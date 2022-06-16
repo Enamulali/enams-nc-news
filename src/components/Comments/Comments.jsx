@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchCommentsByArticle } from "../../utils/api";
 import { dateCalculator } from "../../utils/dateFormatter";
-import BackButton from "../Backbutton/BackButton";
+
 import "./Comments.css";
 
 const Comments = () => {
