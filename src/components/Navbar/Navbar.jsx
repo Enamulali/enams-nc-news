@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { UserContext } from "../../contexts/User";
 
 const Navbar = () => {
-  const { user } = useContext(UserContext);
+  const { loggedInUser } = useContext(UserContext);
 
   return (
     <div className="Nav">
@@ -17,8 +17,8 @@ const Navbar = () => {
           Articles
         </Link>
         <Link className="Nav-link" to="/login">
-          <img className="Nav-user-img" src={user.avatar_url} />{" "}
-          <span>{user.username}</span>
+          <img className="Nav-user-img" src={loggedInUser.avatar_url} />{" "}
+          <span>{loggedInUser.username}</span>
         </Link>
       </nav>
     </div>

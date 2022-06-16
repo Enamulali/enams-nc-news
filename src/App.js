@@ -11,15 +11,15 @@ import Users from "./components/Users/Users";
 import { UserContext } from "./contexts/User";
 
 function App() {
-  const [user, setUser] = useState({
+  const [loggedInUser, setLoggedInUser] = useState({
     username: "Guest",
-    name: "Enamul Ali",
+    name: "Guest",
     avatar_url: "https://www.computerhope.com/jargon/g/guest-user.jpg",
   });
 
   return (
     <div>
-      <UserContext.Provider value={{ user, setUser }}>
+      <UserContext.Provider value={{ loggedInUser, setLoggedInUser }}>
         <Header />
         <Navbar />
         <Routes>

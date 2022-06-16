@@ -1,17 +1,37 @@
 import React, { useEffect, useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../contexts/User";
 import { fetchAllUsers } from "../../utils/api";
 import "./Users.css";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
-  const { setUser } = useContext(UserContext);
+  const { setLoggedInUser } = useContext(UserContext);
+  //button text change when clicked
+  const [isClicked, setIsClicked] = useState(false);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchAllUsers().then((usersFromApi) => {
       setUsers(usersFromApi);
     });
   }, []);
+
+  useEffect(() => {
+    let myFunc;
+    const navigateFunc = () => {
+      navigate("/");
+    };
+
+    const timedNavigate = () => {
+      myFunc = setTimeout(navigateFunc, 1000);
+    };
+
+    if (isClicked) {
+      timedNavigate();
+    }
+  });
 
   return (
     <div className="users-container">
@@ -30,11 +50,13 @@ const Users = () => {
               <button
                 className="login-btn"
                 onClick={() => {
-                  setUser(user);
+                  setLoggedInUser(user);
+                  setIsClicked(true);
                 }}
               >
-                Start
+                {!isClicked ? "Start" : "Success!"}
               </button>
+              <p>{isClicked ? "Redirecting..." : null}</p>
             </li>
           );
         })}
