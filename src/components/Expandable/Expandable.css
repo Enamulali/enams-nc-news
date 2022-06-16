@@ -1,0 +1,33 @@
+/* .expandable-btn {
+  appearance: none;
+  background-color: #bacbdb;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.1) 0 1px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 20px;
+  position: center;
+  text-align: center;
+  user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+  margin: 0.3rem;
+  max-width: 100%;
+
+} */
+.expandable-btn {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+
+  margin: 0;
+  filter: opacity(0.6);
+}

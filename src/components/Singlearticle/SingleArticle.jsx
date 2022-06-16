@@ -7,6 +7,7 @@ import BackButton from "../Backbutton/BackButton";
 import "./SingleArticle.css";
 import Comments from "../Comments/Comments";
 import PostComment from "../Comments/PostComment";
+import Expandable from "../Expandable/Expandable";
 
 const SingleArticle = () => {
   const [singleArticle, setSingleArticle] = useState({});
@@ -57,8 +58,10 @@ const SingleArticle = () => {
         </Link>
       </section>
       <section className="comments-container">
-        <PostComment />
-        <Comments />
+        <Expandable buttontext={"Load Comments"}>
+          <PostComment />
+          <Comments />
+        </Expandable>
       </section>
     </>
   );
