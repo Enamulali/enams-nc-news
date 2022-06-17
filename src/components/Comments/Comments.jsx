@@ -7,6 +7,7 @@ import { BiLike } from "react-icons/bi";
 import { UserContext } from "../../contexts/User";
 
 import "./Comments.css";
+import DeleteComment from "../Deletecomments/DeleteComment";
 
 const Comments = () => {
   const [comments, setComments] = useState([]);
@@ -66,16 +67,11 @@ const Comments = () => {
                       delete
                     </p>
                   ) : (
-                    <button
-                      className="secondary-btn"
-                      onClick={() => {
-                        deleteComment(comment.comment_id);
-                        alert(`comment ${comment.comment_id} deleted`);
-                        setDidDelete((curr) => !curr);
-                      }}
-                    >
-                      Delete
-                    </button>
+                    <DeleteComment
+                      deleteComment={deleteComment}
+                      setDidDelete={setDidDelete}
+                      comment={comment}
+                    />
                   )}
                 </div>
               </li>

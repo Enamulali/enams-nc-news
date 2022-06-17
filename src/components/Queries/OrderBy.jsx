@@ -13,10 +13,10 @@ const OrderBy = ({ setOrderByValue, setSearchTerm, sortByValue }) => {
 
   return (
     <>
-      <button onClick={handleAscClick} value="asc" className="secondary-btn">
+      <button onClick={handleAscClick} value="asc" className="order-btn">
         ASC
       </button>
-      <button onClick={handleDescClick} value="desc" className="secondary-btn">
+      <button onClick={handleDescClick} value="desc" className="order-btn">
         DESC
       </button>
     </>
