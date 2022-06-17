@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { fetchAllTopics } from "../../utils/api";
 import "./Topics.css";
 
 const Topics = ({ setCurrentTopic }) => {
   const [topics, setTopics] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchAllTopics()
@@ -16,24 +18,27 @@ const Topics = ({ setCurrentTopic }) => {
       });
   }, []);
 
+  const handleChange = (value) => {
+    navigate(`/articles/${value}`);
+  };
+
   return (
     <>
-      <div className="topics-container">
-        <h4>What do you want to read about? </h4>
-        <ul className="topics-ul">
+      <label>
+        filter topic:
+        <select
+          className="dropdown"
+          onChange={(e) => handleChange(e.target.value)}
+        >
           {topics.map((topic) => {
             return (
-              <li className="topics-li" key={topic.slug}>
-                <Link to={`/articles/${topic.slug}`} key={topic.slug}>
-                  <button className="view-btn" value={topic.slug}>
-                    {topic.slug.charAt(0).toUpperCase() + topic.slug.slice(1)}
-                  </button>
-                </Link>
-              </li>
+              <option key={topic.slug} value={topic.slug}>
+                {topic.slug}
+              </option>
             );
           })}
-        </ul>
-      </div>
+        </select>
+      </label>
     </>
   );
 };

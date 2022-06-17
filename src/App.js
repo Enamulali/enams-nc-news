@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Articles from "./components/Articles/Articles";
@@ -9,6 +9,7 @@ import SingleArticle from "./components/Singlearticle/SingleArticle";
 import Comments from "./components/Comments/Comments";
 import Users from "./components/Users/Users";
 import { UserContext } from "./contexts/User";
+import { GrLinkTop } from "react-icons/gr";
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({
@@ -17,9 +18,19 @@ function App() {
     avatar_url: "https://www.computerhope.com/jargon/g/guest-user.jpg",
   });
 
+  const nav = useRef(null);
+
+  const handleScroll = (elementRef) => {
+    window.scrollTo({
+      top: elementRef.current.offsetTop,
+      behaviour: "smooth",
+    });
+  };
+
   return (
     <div>
       <UserContext.Provider value={{ loggedInUser, setLoggedInUser }}>
+        <div ref={nav} />
         <Header />
         <Navbar />
         <Routes>
@@ -31,6 +42,9 @@ function App() {
           <Route path="/articles/:articleId/comments" element={<Comments />} />
           <Route path="/login" element={<Users />} />
         </Routes>
+        <button className="scroll-btn" onClick={() => handleScroll(nav)}>
+          <GrLinkTop className="scroll" />
+        </button>
       </UserContext.Provider>
     </div>
   );

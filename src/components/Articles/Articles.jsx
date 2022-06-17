@@ -6,12 +6,13 @@ import Topics from "../Topics/Topics";
 import "./Articles.css";
 import SortBy from "../Queries/SortBy";
 import OrderBy from "../Queries/OrderBy";
+import { MdRefresh } from "react-icons/md";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [sortByValue, setSortByValue] = useState("created_at");
-  const [orderByValue, setOrderByValue] = useState("asc");
+  const [orderByValue, setOrderByValue] = useState("desc");
   const [searchTerm, setSearchTerm] = useSearchParams({
     sort_by: "",
     order: "",
@@ -37,30 +38,31 @@ const Articles = () => {
 
   return (
     <>
-      <Topics />
+      <div className="filter-container">
+        <Topics />
+        <SortBy
+          sortByValue={sortByValue}
+          setSortByValue={setSortByValue}
+          setSearchTerm={setSearchTerm}
+        />
+        <OrderBy
+          orderByValue={orderByValue}
+          setOrderByValue={setOrderByValue}
+          setSearchTerm={setSearchTerm}
+          sortByValue={sortByValue}
+        />
+      </div>
+      <button
+        className={topic ? "show-btn" : "hide-reset-btn"}
+        onClick={() => {
+          navigate(`/articles`);
+        }}
+      >
+        <MdRefresh className="article-icon" />
+        reset
+      </button>
       <div className="articles-container">
         <ul className="articles-ul">
-          <div className="filter-container">
-            <SortBy
-              sortByValue={sortByValue}
-              setSortByValue={setSortByValue}
-              setSearchTerm={setSearchTerm}
-            />
-            <OrderBy
-              orderByValue={orderByValue}
-              setOrderByValue={setOrderByValue}
-              setSearchTerm={setSearchTerm}
-              sortByValue={sortByValue}
-            />
-            <button
-              className={topic ? "show-btn" : "hide-reset-btn"}
-              onClick={() => {
-                navigate(`/articles`);
-              }}
-            >
-              RESET
-            </button>
-          </div>
           {articles.map((article) => {
             return <ArticleCard article={article} key={article.article_id} />;
           })}

@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../contexts/User";
 import { fetchAllUsers } from "../../utils/api";
+import { FiLogIn } from "react-icons/fi";
 import "./Users.css";
 
 const Users = () => {
@@ -21,7 +22,7 @@ const Users = () => {
   useEffect(() => {
     let myFunc;
     const navigateFunc = () => {
-      navigate("/");
+      navigate(-1);
     };
 
     const timedNavigate = () => {
@@ -35,7 +36,9 @@ const Users = () => {
 
   return (
     <div className="users-container">
-      <h2>Select a user below:</h2>
+      <h2 className="user-title">
+        Select User below <FiLogIn />
+      </h2>
       <ul className="users-ul">
         {users.map((user) => {
           return (

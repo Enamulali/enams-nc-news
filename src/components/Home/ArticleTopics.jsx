@@ -14,7 +14,9 @@ const ArticleTopics = ({ articles, topics }) => {
               <li className="topic-articles-li" key={topic.slug}>
                 <Link to={`/articles/${topic.slug}`}>
                   {" "}
-                  <h5>{topic.slug}</h5>
+                  <h5>
+                    {topic.slug.charAt(0).toUpperCase() + topic.slug.slice(1)}
+                  </h5>
                 </Link>
                 <Expandable buttontext={"Show"}>
                   {articles.map((article) => {

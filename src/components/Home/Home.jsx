@@ -45,7 +45,12 @@ const Home = () => {
         </Link>
       </div>
       <ArticleAuthors articles={articles} users={users} />
-      <ArticleTopics articles={articles} topics={topics} />
+      <ArticleTopics articles={articles} topics={topics} />{" "}
+      <div className="user-articles-container">
+        <Link to={`/articles`} style={{ textDecoration: "none" }}>
+          <h2 className="home-heading">View All Articles</h2>{" "}
+        </Link>
+      </div>
     </>
   );
 };

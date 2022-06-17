@@ -47,3 +47,9 @@ export const fetchAllUsers = () => {
     return res.data.users;
   });
 };
+
+export const deleteComment = (comment_id) => {
+  return api.delete(`/comments/${comment_id}`).then((res) => {
+    console.log(res);
+  });
+};
