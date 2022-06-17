@@ -21,3 +21,6 @@
   margin: 0.3rem;
   max-width: 120px;
 }
+:disabled {
+  filter: opacity(0.6);
+}
