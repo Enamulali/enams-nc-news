@@ -1,11 +1,6 @@
 import React from "react";
 
-const OrderBy = ({
-  orderByValue,
-  setOrderByValue,
-  setSearchTerm,
-  sortByValue,
-}) => {
+const OrderBy = ({ setOrderByValue, setSearchTerm, sortByValue }) => {
   const handleAscClick = (e) => {
     setSearchTerm({ sort_by: sortByValue, order: e.target.value });
     setOrderByValue(e.target.value);
@@ -18,10 +13,10 @@ const OrderBy = ({
 
   return (
     <>
-      <button onClick={handleAscClick} value="asc" className="show-btn">
+      <button onClick={handleAscClick} value="asc" className="secondary-btn">
         ASC
       </button>
-      <button onClick={handleDescClick} value="desc" className="show-btn">
+      <button onClick={handleDescClick} value="desc" className="secondary-btn">
         DESC
       </button>
     </>

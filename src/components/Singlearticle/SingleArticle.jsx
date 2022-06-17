@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import React, { useEffect, useState, useRef } from "react";
+import { useParams } from "react-router-dom";
 import { fetchArticleById } from "../../utils/api";
 import Votes from "../Votes/Votes";
 import BackButton from "../Backbutton/BackButton";
-
 import "./SingleArticle.css";
 import Comments from "../Comments/Comments";
 import PostComment from "../Comments/PostComment";
 import Expandable from "../Expandable/Expandable";
+import { BiCommentDetail } from "react-icons/bi";
 
 const SingleArticle = () => {
   const [singleArticle, setSingleArticle] = useState({});
@@ -15,6 +15,8 @@ const SingleArticle = () => {
   const [isError, setIsError] = useState(false);
   const [errMessage, setErrMessage] = useState("");
   const [errDetail, setErrDetail] = useState("");
+  const [didCommentPost, setDidCommentPost] = useState(false);
+  const comments = useRef(null);
 
   const { articleId } = useParams();
 
@@ -30,6 +32,13 @@ const SingleArticle = () => {
         setErrDetail(err.response.data.detail);
       });
   }, [articleId]);
+
+  const handleScroll = (elementRef) => {
+    window.scrollTo({
+      top: elementRef.current.offsetTop,
+      behaviour: "smooth",
+    });
+  };
 
   if (isLoading && isError) {
     return (
@@ -50,19 +59,37 @@ const SingleArticle = () => {
         <p>{singleArticle.body}</p>
         <section className="interaction-container">
           <Votes votes={singleArticle.votes} articleId={articleId} />
+          <div>
+            <p className="comments-subheading">
+              Comments: {singleArticle.comment_count}
+            </p>
+            <button
+              className="comment-btn"
+              onClick={() => handleScroll(comments)}
+            >
+              <BiCommentDetail className="article-icon" /> View
+            </button>
+          </div>
         </section>
         <h4>Written by: {singleArticle.author}</h4>
+
         <p>{singleArticle.created_at}</p>
-        <Link to={`/articles/${articleId}/comments`}>
-          <p>Comments: {singleArticle.comment_count}</p>
-        </Link>
       </section>
-      <section className="comments-container">
-        <Expandable buttontext={"Load Comments"}>
-          <PostComment />
+
+      <section ref={comments} className="comments-container">
+        <PostComment
+          didCommentPost={didCommentPost}
+          setDidCommentPost={setDidCommentPost}
+        />
+        <div className="margin"></div>
+        <Expandable
+          buttontext={`Load ${singleArticle.comment_count} Comments ...`}
+        >
           <Comments />
         </Expandable>
       </section>
+
+      <div className="margin"></div>
     </>
   );
 };

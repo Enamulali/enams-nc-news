@@ -71,15 +71,20 @@
   white-space: nowrap;
   margin: 0.3rem;
   max-width: 120px;
+  margin-left: 3rem;
 }
 
 .filter-container {
-  display: flex;
-  grid-template-columns: 33%, 33%, 33%;
-  grid-template-rows: 1;
-  justify-content: right;
-  margin-right: 2rem;
-  margin-bottom: 1rem;
+  display: grid;
+  grid-template-columns: 32% 32% 21% 21%;
+  padding-bottom: 1rem;
+  align-items: center;
+  padding-left: 1rem;
+  padding-right: 2rem;
+}
+
+label {
+  filter: opacity(0.5);
 }
 
 .dropdown {
@@ -103,4 +108,21 @@
   font-size: 1rem;
   cursor: pointer;
   line-height: 1.1;
+}
+
+.article-icon {
+  font-size: 22px;
+  filter: opacity(0.6);
+}
+.article-icon-comment {
+  font-size: 20px;
+  filter: opacity(0.6);
+}
+.article-icon-like {
+  font-size: 24px;
+  filter: opacity(0.6);
+}
+.info-container {
+  display: flex;
+  justify-content: space-between;
 }

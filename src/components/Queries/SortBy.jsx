@@ -18,6 +18,7 @@ const SortBy = ({ sortByValue, setSortByValue, setSearchTerm }) => {
           <option value="votes">votes</option>
           <option value="created_at">date</option>
           <option value="author">author</option>
+          <option value="title">title</option>
         </select>
       </label>
     </>
