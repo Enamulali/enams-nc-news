@@ -9,13 +9,21 @@ export const fetchAllArticles = (topic, sort_by, order) => {
     .get(`/articles`, { params: { topic, sort_by, order } })
     .then((res) => {
       return res.data.articles;
+    })
+    .catch((err) => {
+      console.dir(err, "ERR");
     });
 };
 
 export const fetchAllTopics = () => {
-  return api.get(`/topics`).then((res) => {
-    return res.data.topics;
-  });
+  return api
+    .get(`/topics`)
+    .then((res) => {
+      return res.data.topics;
+    })
+    .catch((err) => {
+      console.dir(err, "ERR");
+    });
 };
 
 export const fetchArticleById = (article_id) => {

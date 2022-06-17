@@ -1,0 +1,11 @@
+.error-img {
+  width: 100%;
+  padding: 2rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+.error-msg {
+  padding-left: 3rem;
+  font-size: 50px;
+}

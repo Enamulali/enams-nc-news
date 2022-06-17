@@ -7,6 +7,7 @@ import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import SingleArticle from "./components/Singlearticle/SingleArticle";
 import Comments from "./components/Comments/Comments";
+import ErrorPage from "./components/Error/ErrorPage";
 import Users from "./components/Users/Users";
 import { UserContext } from "./contexts/User";
 import { GrLinkTop } from "react-icons/gr";
@@ -41,7 +42,9 @@ function App() {
           <Route path="/articles/id/:articleId" element={<SingleArticle />} />
           <Route path="/articles/:articleId/comments" element={<Comments />} />
           <Route path="/login" element={<Users />} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
+        <div className="margin" />
         <button className="scroll-btn" onClick={() => handleScroll(nav)}>
           <GrLinkTop className="scroll" />
         </button>

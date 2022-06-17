@@ -17,6 +17,9 @@ const Articles = () => {
     sort_by: "",
     order: "",
   });
+  const [isError, setIsError] = useState(false);
+  const [errMessage, setErrMessage] = useState("");
+  const [errDetail, setErrDetail] = useState("");
 
   const navigate = useNavigate();
   const { topic } = useParams();
@@ -24,16 +27,28 @@ const Articles = () => {
   useEffect(() => {
     fetchAllArticles(topic, sortByValue, orderByValue)
       .then((articlesFromApi) => {
-        setArticles(articlesFromApi);
-        setIsLoading(false);
+        if (articlesFromApi.length !== 0) {
+          setArticles(articlesFromApi);
+          setIsLoading(false);
+        }
       })
       .catch((err) => {
-        console.dir(err);
+        setIsError(true);
+        setIsLoading(false);
       });
   }, [topic, sortByValue, orderByValue]);
 
   if (isLoading) {
     return <h1>Loading...</h1>;
+  }
+
+  if (isError) {
+    return (
+      <>
+        <h1 className="error-msg">Oops! Something went wrong.</h1>
+        <h1 className="error-msg">Check Category.</h1>
+      </>
+    );
   }
 
   return (

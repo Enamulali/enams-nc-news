@@ -40,6 +40,8 @@ const SingleArticle = () => {
     });
   };
 
+  //article does not exist error message
+
   if (isLoading && isError) {
     return (
       <div className="err-msg">
