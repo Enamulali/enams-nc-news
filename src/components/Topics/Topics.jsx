@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { fetchAllTopics } from "../../utils/api";
 import "./Topics.css";
 
-const Topics = ({ setCurrentTopic }) => {
+const Topics = () => {
   const [topics, setTopics] = useState([]);
 
   const navigate = useNavigate();
