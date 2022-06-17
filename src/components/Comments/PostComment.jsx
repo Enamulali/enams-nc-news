@@ -1,44 +1,30 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
-
-import { postCommentByArticle } from "../../utils/api";
+import { HiOutlineUserCircle } from "react-icons/hi";
 import { dateCalculator } from "../../utils/dateFormatter";
+import CommentForm from "./CommentForm";
 
-const PostComment = () => {
+const PostComment = ({ didCommentPost, setDidCommentPost }) => {
   const [inputUsername, setInputUsername] = useState("");
   const [inputBody, setInputBody] = useState("");
   const [postedComment, setPostedComment] = useState({});
-  const [didCommentPost, setDidCommentPost] = useState(false);
-
-  const { articleId } = useParams();
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const input = { username: inputUsername, body: inputBody };
-    postCommentByArticle(articleId, input)
-      .then((postedCommentFromApi) => {
-        console.log(postedCommentFromApi);
-        setPostedComment(postedCommentFromApi);
-        setDidCommentPost(true);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
 
   if (didCommentPost) {
     return (
       <>
         <section>
           <ul className="comments-ul">
+            <p className="comments-subheading">Posted</p>
             <li className="comments-card" key={postedComment.comment_id}>
               <div className="user-comment">
-                <p className="comments-author">
-                  {postedComment.author}
-                  <span className="comments-date">
-                    {dateCalculator(postedComment.created_at)}
-                  </span>
-                </p>
+                <div className="user-info">
+                  <HiOutlineUserCircle className="article-icon" />
+                  <p className="comments-subheading">
+                    {postedComment.author}
+                    <span className="comments-date">
+                      {dateCalculator(postedComment.created_at)}
+                    </span>
+                  </p>
+                </div>
                 <p className="comments-body">{postedComment.body}</p>
                 <p className="comments-votes">Votes: {postedComment.votes}</p>
               </div>
@@ -48,34 +34,20 @@ const PostComment = () => {
       </>
     );
   }
-
-  return (
-    <>
-      <form className="post-form" onSubmit={handleSubmit}>
-        <label>
-          Username:
-          <input
-            type="text"
-            value={inputUsername}
-            onChange={(e) => {
-              setInputUsername(e.target.value);
-            }}
-          />
-        </label>
-        <label>
-          Comment:
-          <textarea
-            placeholder="I enjoyed your article!"
-            value={inputBody}
-            onChange={(e) => {
-              setInputBody(e.target.value);
-            }}
-          ></textarea>
-        </label>
-        <button type="submit">Submit</button>
-      </form>
-    </>
-  );
+  if (!didCommentPost) {
+    return (
+      <CommentForm
+        className="hello"
+        setPostedComment={setPostedComment}
+        setDidCommentPost={setDidCommentPost}
+        setInputUsername={setInputUsername}
+        setInputBody={setInputBody}
+        inputUsername={inputUsername}
+        inputBody={inputBody}
+        didCommentPost={didCommentPost}
+      />
+    );
+  }
 };
 
 export default PostComment;
