@@ -1,8 +1,8 @@
 # Welcome to NC News!
 
-A responsive front-end application, for a [news API](https://github.com/Enamulali/back-end-API-project). This was project was built using React as part of a full stack solo-project during the Northcoders bootcamp.
+A responsive front-end social news application connected to my [backend news API](https://github.com/Enamulali/back-end-API-project). This was project was built using React as part of a full stack solo-project during the Northcoders bootcamp.
 
-To view a live version of this app, visit:
+### To view a live version of this app, visit:
 https://nc-news-ea.netlify.app 
 
 and view the back-end api hosted at:
