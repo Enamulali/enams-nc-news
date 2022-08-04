@@ -57,6 +57,12 @@ xcode-select --install
 ```
 brew install cocoapods
 ```
+
+5. Install Cocoapods without Homebrew:
+```
+sudo gem install cocoapods
+```
+<br>
 </details>
 
 [For further support refer to capacitor environment setup docs](https://capacitorjs.com/docs/getting-started/environment-setup)
@@ -65,7 +71,17 @@ brew install cocoapods
 
 1. Run `npm install` to install dependencies. This may take a few minutes.
 
-2. To open the project in Xcode, run:
+2. Build a local version of the app, using:
+```
+npm run build
+```
+
+3. Sync your built web application to your native project, using:
+```
+npx cap sync
+```
+
+4. To open the project in Xcode, run:
 ```
 npx cap open ios
 ```
@@ -74,16 +90,12 @@ To open the project in Android Studio, run:
 npx cap open android
 ```
 
-3. To run the project on a device or simulator, run:
+5. To run the project on a device or simulator, run:
 ```
 npx cap run ios
 npx cap run android
 ```
 
-4. To sync your built web application to your native project, run:
-```
-npx cap sync
-```
 
 # Navigating the app
 
