@@ -163,16 +163,23 @@
   max-height: 3rem;
   max-width: 120px;
 }
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 500px) {
   .filter-container {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 33% 33% 33%;
   }
   .order-btn {
-    width: 4rem;
-    font-size: 10px;
+    width: 2rem;
+    height: 1.5rem;
+    font-size: 16px;
     padding: 0;
-    padding-left: 1rem;
-    padding-right: 1rem;
   }
+  .order-btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.order-btn-container {
+  display: flex;
 }

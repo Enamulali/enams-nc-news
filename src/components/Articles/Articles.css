@@ -76,11 +76,12 @@
 
 .filter-container {
   display: grid;
-  grid-template-columns: 32% 32% 21% 21%;
+  grid-template-columns: 35% 35% 30%;
   padding-bottom: 1rem;
   align-items: center;
   padding-left: 1rem;
   padding-right: 2rem;
+  margin-left: 2rem;
 }
 
 label {
