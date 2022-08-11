@@ -1,8 +1,4 @@
 import React, { useEffect, useState } from "react";
-import {
-  AiOutlineSortAscending,
-  AiOutlineSortDescending,
-} from "react-icons/ai";
 
 const OrderBy = ({ setOrderByValue, setSearchTerm, sortByValue }) => {
   const [width, setWidth] = useState(window.innerWidth);
@@ -35,10 +31,10 @@ const OrderBy = ({ setOrderByValue, setSearchTerm, sortByValue }) => {
     <>
       <div className="order-btn-container">
         <button onClick={handleAscClick} value="asc" className="order-btn">
-          {width > 500 ? "ASC" : <AiOutlineSortAscending />}
+          {width > 500 ? "ASC" : "ASC"}
         </button>
         <button onClick={handleDescClick} value="desc" className="order-btn">
-          {width > 500 ? "DESC" : <AiOutlineSortDescending />}
+          {width > 500 ? "DESC" : "DESC"}
         </button>
       </div>
     </>
