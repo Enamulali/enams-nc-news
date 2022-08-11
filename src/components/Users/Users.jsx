@@ -7,6 +7,7 @@ import "./Users.css";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
   const { setLoggedInUser } = useContext(UserContext);
   //button text change when clicked
   const [isClicked, setIsClicked] = useState(false);
@@ -16,6 +17,7 @@ const Users = () => {
   useEffect(() => {
     fetchAllUsers().then((usersFromApi) => {
       setUsers(usersFromApi);
+      setLoading(false);
     });
   }, []);
 
@@ -39,6 +41,7 @@ const Users = () => {
       <h2 className="user-title">
         Select User below <FiLogIn />
       </h2>
+      {loading ? "Loading..." : null}
       <ul className="users-ul">
         {users.map((user) => {
           return (
