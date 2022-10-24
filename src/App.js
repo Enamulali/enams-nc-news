@@ -11,6 +11,7 @@ import ErrorPage from "./components/Error/ErrorPage";
 import Users from "./components/Users/Users";
 import { UserContext } from "./contexts/User";
 import { GrLinkTop } from "react-icons/gr";
+import Profile from "./components/Profile";
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({
@@ -42,6 +43,7 @@ function App() {
           <Route path="/articles/id/:articleId" element={<SingleArticle />} />
           <Route path="/articles/:articleId/comments" element={<Comments />} />
           <Route path="/login" element={<Users />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
         <div className="margin" />

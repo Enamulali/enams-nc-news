@@ -61,3 +61,9 @@ export const deleteComment = (comment_id) => {
     console.log(res);
   });
 };
+
+export const fetchUserByUsername = (username) => {
+  return api.get(`/users/${username}`).then((res) => {
+    return res.data.user;
+  });
+};
