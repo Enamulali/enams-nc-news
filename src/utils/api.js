@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://enams-nc-news-api.herokuapp.com/api",
+  baseURL: "https://enams-news-api.onrender.com/",
 });
 
 export const fetchAllArticles = (topic, sort_by, order) => {
