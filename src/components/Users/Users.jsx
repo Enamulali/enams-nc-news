@@ -9,7 +9,7 @@ const Users = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const { setLoggedInUser } = useContext(UserContext);
-  //button text change when clicked
+  //button text change and redirect when clicked
   const [isClicked, setIsClicked] = useState(false);
 
   const navigate = useNavigate();

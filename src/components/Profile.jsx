@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { useEffect } from "react";
 import { UserContext } from "../contexts/User";
 import { fetchUserByUsername } from "../utils/api";
+import "./Profile.css";
 
 const Profile = () => {
   const user = useContext(UserContext);
@@ -14,13 +15,11 @@ const Profile = () => {
     });
   }, [user]);
 
-  console.log(userInfo);
-
   return (
     userInfo && (
       <div>
         <h1>Welcome to your Profile!</h1>
-        <img src={userInfo.avatar_url} />
+        <img className="profile-img" src={userInfo.avatar_url} />
         <p>Username: {userInfo.username}</p>
         <p>Name: {userInfo.name}</p>
       </div>
