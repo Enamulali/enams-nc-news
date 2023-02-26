@@ -7,7 +7,7 @@ This was project was built using React as part of a full stack solo-project duri
 https://nc-news-ea.netlify.app 
 
 and view the back-end api hosted at:
-https://enams-nc-news-api.herokuapp.com/api/articles 
+https://enams-news-api.onrender.com/api/articles 
 
 ## Installation
 
