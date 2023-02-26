@@ -36,7 +36,7 @@
 }
 
 .user-articles-li {
-  margin-right: 2rem;
+  margin-right: 5rem;
   border-radius: 3px;
   padding: 5px;
   background-color: #ffffff;
@@ -70,4 +70,16 @@
   border-left: 4px solid;
   border-color: #f05454;
   padding-left: 1rem;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.user-img {
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
 }
